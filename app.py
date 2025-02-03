@@ -125,13 +125,17 @@ def stream(id):
         next_index = index + 1
         next_video_id = get_next_video_id(query, next_index)
         
+        # streams = [{
+        #     "name": 'Youtube PRO',
+        #     "ytId": yt_id,
+        #     "behaviorHints": {
+        #         "nextVideo": next_video_id
+        #     }
+        # }] 
         streams = [{
             "name": 'Youtube PRO',
-            "ytId": yt_id,
-            "behaviorHints": {
-                "nextVideo": next_video_id
-            }
-        }]        
+            "ytId": yt_id
+        }]                  
         
         return respond_with({"streams": streams})
     
