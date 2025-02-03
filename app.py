@@ -134,6 +134,7 @@ def stream(id):
         # }] 
         streams = [{
             "name": 'Youtube PRO',
+            "description": "Youtube",
             "ytId": yt_id
         }]                  
         
