@@ -144,86 +144,28 @@ def stream(id):
     return jsonify({"streams": []})
 
 def youtube_search(query):
-    KEY = 'AIzaSyD2K6OooNWMPgEWlkAkgAIRctksFyKk1vY'
-    KEY2 = 'AIzaSyBJ3ntReiv0L19H2RoYW62LpRdIuyPhIpw'
-    KEY3 = 'AIzaSyDGhx1DtIgDl5ITSm0xfmqPAAHSAlI2KeU'
-    KEY4 = 'AIzaSyAJk1xUI72YYfBMgEc84gjHUX-k2AN6-B0'
-    KEY5 = 'AIzaSyAoFblDoXcc9f96-JUgCOshYFBJAwoEU24'
-    KEY6 = 'AIzaSyB1OOSpTREs85WUMvIgJvLTZKye4BVsoFU'
-    KEY7 = 'AIzaSyBkR-hDZZn-YnmV3RBWwXJ6zLaA2yhNAqU'
-    KEY8 = 'AIzaSyAG3GyDRMSgc__9YKM37DNDzi0og_Koz1Q'
-    KEY9 = 'AIzaSyBqE8OMbdKd-7NOT_LBvkgATb8huk3sPHI'
-    KEY10 = 'AIzaSyBljuu-8XWjq3x1g_dCGxSyWFk29FzbvnY'
-    KEY11 = 'AIzaSyBML3uOUyQhOshc796-ouC-mamnNJhbZxs'
-    KEY12 = 'AIzaSyDfFr3mb1R0EhvZ8MfbvYH4jC7QWh8658A'
-    KEY13 = 'AIzaSyCcGHW1aj_8BRTLe8CHeMhLprnSamzx7Oo'
-    
-    try:
-        url = f"https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&q={query}&type=video&key={KEY}"
-        response = requests.get(url)
-        response.raise_for_status()
-    except:
+    KEYS = ['AIzaSyD2K6OooNWMPgEWlkAkgAIRctksFyKk1vY', 
+            'AIzaSyBJ3ntReiv0L19H2RoYW62LpRdIuyPhIpw', 
+            'AIzaSyDGhx1DtIgDl5ITSm0xfmqPAAHSAlI2KeU', 
+            'AIzaSyAJk1xUI72YYfBMgEc84gjHUX-k2AN6-B0',
+            'AIzaSyAoFblDoXcc9f96-JUgCOshYFBJAwoEU24',
+            'AIzaSyB1OOSpTREs85WUMvIgJvLTZKye4BVsoFU',
+            'AIzaSyBkR-hDZZn-YnmV3RBWwXJ6zLaA2yhNAqU',
+            'AIzaSyAG3GyDRMSgc__9YKM37DNDzi0og_Koz1Q',
+            'AIzaSyBqE8OMbdKd-7NOT_LBvkgATb8huk3sPHI',
+            'AIzaSyBljuu-8XWjq3x1g_dCGxSyWFk29FzbvnY',
+            'AIzaSyBML3uOUyQhOshc796-ouC-mamnNJhbZxs',
+            'AIzaSyDfFr3mb1R0EhvZ8MfbvYH4jC7QWh8658A',
+            'AIzaSyCcGHW1aj_8BRTLe8CHeMhLprnSamzx7Oo']
+    for KEY in KEYS:
         try:
-            url = f"https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&q={query}&type=video&key={KEY2}"
-            response = requests.get(url) 
-            response.raise_for_status() 
+            url = f"https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&q={query}&type=video&key={KEY}"
+            response = requests.get(url)
+            response.raise_for_status()
+            if response.status_code == 200:
+                break
         except:
-            try:
-                url = f"https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&q={query}&type=video&key={KEY3}"
-                response = requests.get(url) 
-                response.raise_for_status() 
-            except:
-                try:
-                    url = f"https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&q={query}&type=video&key={KEY4}"
-                    response = requests.get(url) 
-                    response.raise_for_status() 
-                except:
-                    try:
-                        url = f"https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&q={query}&type=video&key={KEY5}"
-                        response = requests.get(url) 
-                        response.raise_for_status() 
-                    except:
-                        try:
-                            url = f"https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&q={query}&type=video&key={KEY6}"
-                            response = requests.get(url) 
-                            response.raise_for_status() 
-                        except:
-                            try:
-                                url = f"https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&q={query}&type=video&key={KEY7}"
-                                response = requests.get(url) 
-                                response.raise_for_status() 
-                            except:
-                                try:
-                                    url = f"https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&q={query}&type=video&key={KEY8}"
-                                    response = requests.get(url) 
-                                    response.raise_for_status() 
-                                except:
-                                    try:
-                                        url = f"https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&q={query}&type=video&key={KEY9}"
-                                        response = requests.get(url) 
-                                        response.raise_for_status() 
-                                    except:
-                                        try:
-                                            url = f"https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&q={query}&type=video&key={KEY10}"
-                                            response = requests.get(url) 
-                                            response.raise_for_status() 
-                                        except:
-                                            try:
-                                                url = f"https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&q={query}&type=video&key={KEY11}"
-                                                response = requests.get(url) 
-                                                response.raise_for_status() 
-                                            except:
-                                                try:
-                                                    url = f"https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&q={query}&type=video&key={KEY12}"
-                                                    response = requests.get(url) 
-                                                    response.raise_for_status() 
-                                                except:
-                                                    try:
-                                                        url = f"https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&q={query}&type=video&key={KEY13}"
-                                                        response = requests.get(url) 
-                                                        response.raise_for_status() 
-                                                    except:
-                                                        pass
+            pass
     try:
         return response.json()
     except:
