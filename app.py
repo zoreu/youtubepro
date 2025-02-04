@@ -123,8 +123,8 @@ def stream(id):
         query = parts[2]
         index = int(parts[3])
 
-        next_index = index + 1
-        next_video_id = get_next_video_id(query, next_index)
+        #next_index = index + 1
+        #next_video_id = get_next_video_id(query, next_index)
         
         # streams = [{
         #     "name": 'Youtube PRO',
