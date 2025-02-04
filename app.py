@@ -3,7 +3,8 @@ import requests
 
 app = Flask(__name__)
 
-YOUTUBE_API_KEY = 'AIzaSyBFxdpFX61mnqtjBg1QQWaL09nti6ytGH8'
+#YOUTUBE_API_KEY = 'AIzaSyBFxdpFX61mnqtjBg1QQWaL09nti6ytGH8'
+#YOUTUBE_API_KEY = 'AIzaSyD2K6OooNWMPgEWlkAkgAIRctksFyKk1vY'
 
 MANIFEST = {
         "id": "com.youtube.pro",
@@ -143,12 +144,91 @@ def stream(id):
     return jsonify({"streams": []})
 
 def youtube_search(query):
-    url = f"https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=400&q={query}&type=video&key={YOUTUBE_API_KEY}"
-    response = requests.get(url)
-    try:    
+    KEY = 'AIzaSyD2K6OooNWMPgEWlkAkgAIRctksFyKk1vY'
+    KEY2 = 'AIzaSyBJ3ntReiv0L19H2RoYW62LpRdIuyPhIpw'
+    KEY3 = 'AIzaSyDGhx1DtIgDl5ITSm0xfmqPAAHSAlI2KeU'
+    KEY4 = 'AIzaSyAJk1xUI72YYfBMgEc84gjHUX-k2AN6-B0'
+    KEY5 = 'AIzaSyAoFblDoXcc9f96-JUgCOshYFBJAwoEU24'
+    KEY6 = 'AIzaSyB1OOSpTREs85WUMvIgJvLTZKye4BVsoFU'
+    KEY7 = 'AIzaSyBkR-hDZZn-YnmV3RBWwXJ6zLaA2yhNAqU'
+    KEY8 = 'AIzaSyAG3GyDRMSgc__9YKM37DNDzi0og_Koz1Q'
+    KEY9 = 'AIzaSyBqE8OMbdKd-7NOT_LBvkgATb8huk3sPHI'
+    KEY10 = 'AIzaSyBljuu-8XWjq3x1g_dCGxSyWFk29FzbvnY'
+    KEY11 = 'AIzaSyBML3uOUyQhOshc796-ouC-mamnNJhbZxs'
+    KEY12 = 'AIzaSyDfFr3mb1R0EhvZ8MfbvYH4jC7QWh8658A'
+    KEY13 = 'AIzaSyCcGHW1aj_8BRTLe8CHeMhLprnSamzx7Oo'
+    
+    try:
+        url = f"https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&q={query}&type=video&key={KEY}"
+        response = requests.get(url)
+        response.raise_for_status()
+    except:
+        try:
+            url = f"https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&q={query}&type=video&key={KEY2}"
+            response = requests.get(url) 
+            response.raise_for_status() 
+        except:
+            try:
+                url = f"https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&q={query}&type=video&key={KEY3}"
+                response = requests.get(url) 
+                response.raise_for_status() 
+            except:
+                try:
+                    url = f"https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&q={query}&type=video&key={KEY4}"
+                    response = requests.get(url) 
+                    response.raise_for_status() 
+                except:
+                    try:
+                        url = f"https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&q={query}&type=video&key={KEY5}"
+                        response = requests.get(url) 
+                        response.raise_for_status() 
+                    except:
+                        try:
+                            url = f"https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&q={query}&type=video&key={KEY6}"
+                            response = requests.get(url) 
+                            response.raise_for_status() 
+                        except:
+                            try:
+                                url = f"https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&q={query}&type=video&key={KEY7}"
+                                response = requests.get(url) 
+                                response.raise_for_status() 
+                            except:
+                                try:
+                                    url = f"https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&q={query}&type=video&key={KEY8}"
+                                    response = requests.get(url) 
+                                    response.raise_for_status() 
+                                except:
+                                    try:
+                                        url = f"https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&q={query}&type=video&key={KEY9}"
+                                        response = requests.get(url) 
+                                        response.raise_for_status() 
+                                    except:
+                                        try:
+                                            url = f"https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&q={query}&type=video&key={KEY10}"
+                                            response = requests.get(url) 
+                                            response.raise_for_status() 
+                                        except:
+                                            try:
+                                                url = f"https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&q={query}&type=video&key={KEY11}"
+                                                response = requests.get(url) 
+                                                response.raise_for_status() 
+                                            except:
+                                                try:
+                                                    url = f"https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&q={query}&type=video&key={KEY12}"
+                                                    response = requests.get(url) 
+                                                    response.raise_for_status() 
+                                                except:
+                                                    try:
+                                                        url = f"https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&q={query}&type=video&key={KEY13}"
+                                                        response = requests.get(url) 
+                                                        response.raise_for_status() 
+                                                    except:
+                                                        pass
+    try:
         return response.json()
     except:
-        return {}
+        return {}                              
+
 
 def get_next_video_id(query, index):
     results = youtube_search(query)
